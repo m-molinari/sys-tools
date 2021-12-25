@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# Backup Script
+# Backup Script (best use with cron)
 #
 
 # Declare variables
@@ -14,8 +14,19 @@ MY_FIND=`which find`
 
 # Usage
 usage() {
-	echo "Usage: $0 [-s <source dir>] [-d <destination dir>] [-n <backup name file>] [-r <backup retention>] [-v (optional)]" 1>&2
-	 exit 1
+        echo "Usage: $0 [OPTION ...]"
+        echo
+        echo "Examples:"
+        echo "$0 [-s <source dir>] [-d <destination dir>] [-n <backup name file>] [-r <backup retention>] [-v (optional)]"
+        echo
+        echo "Arguments:"
+        echo "-s source dir to backup (must)"
+        echo "-d destination dir where backup will be stored (must)"
+        echo "-n name of backup file (must)"
+        echo "-r retention how many days backups will be keep (must)"
+        echo "-v verbose (optional)"
+        echo
+        exit 1
 }
 
 # Getops
@@ -51,10 +62,11 @@ if [ -z $SRCDIR ] || [ -z $DESDIR ] || [ -z $NAME ] || [ -z $RET ]; then
 	exit 1
 fi
 
-# Test read permission
-if [ ! -r $SRCDIR ] ; then
-	echo "You haven't read permission on $SRCDIR"
-	exit 1
+# Testing and creating destination directory
+if [ ! -d "$SRCDIR" ]; then
+        echo "Missing source directory on filesystem"
+        echo "Backup failed"
+        exit 1
 fi
 
 # Testing and creating destination directory
@@ -62,6 +74,12 @@ if [ ! -d "$DESDIR" ]; then
         echo "Missing destination directory on filesystem"
         echo "Backup failed"
         exit 1
+fi
+
+# Test read permission
+if [ ! -r $SRCDIR ] ; then
+	echo "You haven't read permission on $SRCDIR"
+	exit 1
 fi
 
 # Find old backups
