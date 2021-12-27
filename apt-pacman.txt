@@ -11,6 +11,7 @@ Upgrade Packages		pacman -Syu		apt upgrade
 Clean up all local caches	pacman -Scc		apt autoclean  
 -----------------------------------------------------------------------------------
 Remove dep no longer need	pacman -Qdtq \		apt autoremove 
+				| pacman -Rs -
 -----------------------------------------------------------------------------------
 Only downloads			pacman -Sw		apt install --download-only 
 -----------------------------------------------------------------------------------
