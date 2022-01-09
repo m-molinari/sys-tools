@@ -11,6 +11,8 @@ if  [ -e /etc/debian_version ] ; then
 	DISTRO=debian
 elif [ -e /etc/arch-release ] ; then
 	DISTRO=archlinux
+elif [ -e /etc/gentoo-release  ] ; then
+        DISTRO=gentoo
 else
 	echo -e "\033[0;31m distro not found \033[0m"  
 	exit 1
