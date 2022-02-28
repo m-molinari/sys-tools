@@ -9,3 +9,6 @@ dpkg -l | grep aspell | grep dictionary | grep -v aspell-it | grep -v aspell-en 
 
 echo "Removing hunspell dictionary excluding en and it"
 dpkg -l | grep hunspell | grep dictionary | grep -v hunspell-it | grep -v hunspell-en- | awk '{print $2}' | xargs sudo apt-get remove --purge -y
+
+echo "Removing libreoffice dictionary excluding en and it"
+dpkg -l | grep libreoffice | grep language | grep -v libreoffice-l10n-it  | grep -v  libreoffice-l10n-en | awk '{print $2}' | xargs sudo apt-get remove --purge -y
