@@ -12,3 +12,6 @@ dpkg -l | grep hunspell | grep dictionary | grep -v hunspell-it | grep -v hunspe
 
 echo "Removing libreoffice dictionary excluding en and it"
 dpkg -l | grep libreoffice | grep language | grep -v libreoffice-l10n-it  | grep -v  libreoffice-l10n-en | awk '{print $2}' | xargs sudo apt-get remove --purge -y
+
+echo "Removing thai term"
+sudo apt-get remove xiterm+thai
