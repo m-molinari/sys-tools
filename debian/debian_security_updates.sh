@@ -3,6 +3,9 @@
 # This is a script that list security updates available on Debian OS (possible sending an email notification)
 #
 
+# Update apt cache
+apt-get update -qq
+
 declare -i SEC_UPDATES=0
 SERVER=`hostname`
 SEC_UPDATES=$(/usr/bin/apt-get -s upgrade | grep Debian-Security | grep -c Inst)
