@@ -4,7 +4,7 @@
 #
 
 # Update apt cache
-apt-get update -qq
+/usr/bin/apt-get update -qq
 
 declare -i SEC_UPDATES=0
 SERVER=`hostname`
