@@ -26,18 +26,13 @@ fi
 cd $REPO_PATH/dotfiles/ && git pull
 
 if [ "$2" == "dry" ] ; then
-	rsync -avz --dry-run --ignore-existing --include ".*" $HOME/dotfiles/* --exclude .git --exclude README.md  $HOME/
+	rsync -avz --dry-run --ignore-existing --include ".*" $DISTRO --exclude .git --exclude README.md  $HOME/
 else
-	rsync -avz --ignore-existing --include ".*" $HOME/dotfiles/* --exclude .git --exclude README.md  $HOME/
+	rsync -avz --ignore-existing --include ".*" $DISTRO --exclude .git --exclude README.md  $HOME/
 fi
 
 echo 
 echo -e  "\033[0;32m sync $DISTRO config \033[0m"
 echo
-if [ "$2" == "dry" ] ; then
-	rsync -avz --dry-run --ignore-existing $HOME/$DISTRO/.??* $HOME/
-else
-	rsync -avz  --ignore-existing $HOME/$DISTRO/.??* $HOME/
-fi
 
 exit 0
