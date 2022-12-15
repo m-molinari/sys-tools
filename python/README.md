@@ -1,15 +1,15 @@
 # Python
 
-**Create env**	
+**Create env**	<br/>
 python -m venv NAME
 
-**Activate env**	
+**Activate env**	<br/>
 source bin/activate
 
-**Save modules**
+**Save modules** <br/>
 pip freeze > requirements.txt
 
-**Deactivate env**
+**Deactivate env** <br/>
 deactivate
 
 
