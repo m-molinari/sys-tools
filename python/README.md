@@ -38,8 +38,4 @@ sudo pydoc3  -p PORT
 and browse it by http://localhost:PORT
 
 
-# python backup
-Simple script for backup a folder, and remove old backups, just for my exercise for improving python skills, not usefull for a real use, Bash is simpler
-
-
 
