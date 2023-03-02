@@ -35,5 +35,4 @@ sudo cp -a /etc/fstab $HOME/fstab.orig
 
 echo "" | sudo tee -a  /etc/fstab
 echo "# Partition NTFS" | sudo tee -a  /etc/fstab
-echo "${MY_UUID}	/media/${USERNAME}/dati	 ntfs-3g 	uid=${USER_UID},gid=${USER_UID},dmask=022 0   0" | sudo tee -a /etc/fstab
-
+echo "${MY_UUID}       /media/${USERNAME}/dati  ntfs-3g        rw,uid=${USER_UID},gid=${USER_UID},dmask=0002,fmask=0003 0 0" | sudo tee -a /etc/fstab
