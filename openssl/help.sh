@@ -57,6 +57,8 @@ echo "openssl x509 -noout -modulus -in server.crt | openssl md5"
 echo "openssl rsa -noout -modulus -in server.key | openssl md5"
 echo "openssl req -noout -modulus -in server.csr | openssl md5"
 echo -e "${Green}Check SSL connection${NC}"
+echo
+echo
 echo "openssl s_client -connect www.example.com:443"
 echo
 echo
