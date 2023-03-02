@@ -12,6 +12,8 @@ White='\033[0;37m'
 ################################################################################################
 # GENERATE
 ################################################################################################
+echo
+echo
 echo -e "${Green}Generate a new private key and csr${NC}"
 echo "openssl req  -nodes -sha256 -newkey rsa:2048 -keyout server.key -out server.csr"
 echo "openssl req -out server.csr -pubkey -new -keyout server.key"
