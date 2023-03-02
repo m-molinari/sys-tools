@@ -30,7 +30,7 @@ echo "openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -ou
 echo
 echo
 echo -e "${Green}Remove password from a private key${NC}"
-echo "openssl rsa -in privateKey.pem -out newPrivateKey.pem"
+echo "openssl rsa -in server.pem -out newserver.pem"
 echo
 echo
 ################################################################################################
