@@ -54,6 +54,19 @@ else
     ls -lh $HOME/BACKUP/etc.tar.bz2
 fi
 
+# Backup packages
+#
+if [ -e /etc/debian_version ] ; then
+    dpkg -l > $HOME/BACKUP/packages.txt
+elif [ -e /etc/arch-release ] ; then
+    pacman -Qqe > $HOME/BACKUP/packages.txt
+    pacman -Qqem > $HOME/BACKUP/foreign_packages.txt
+else
+    echo "distro not found"
+    exit 1
+fi
+
+
 echo
 echo "Save this folder: $HOME/BACKUP on external storage"
 echo
