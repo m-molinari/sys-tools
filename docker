@@ -1,0 +1,9 @@
+Add insecure registry
+  ```
+  cat /etc/docker/daemon.json
+{
+"insecure-registries" : ["dockerhost.fqdn:5000"]
+}
+
+systemctl restart docker
+  ```
