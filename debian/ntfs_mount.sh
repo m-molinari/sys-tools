@@ -9,7 +9,7 @@ if [ -z $USERNAME ] || [ -z $PARTITION ]; then
     exit 1
 fi
 
-if [ $(sudo getent passwd ${USER}| grep -c ^${USER}:) -eq 0 ]; then
+if [ $(sudo getent passwd ${USER} | grep -c ^${USER}:) -eq 0 ]; then
     echo "User : $USERNAME doesn't exist on system"
     exit 1
 fi
@@ -29,7 +29,7 @@ sudo mkdir -p /media/${USERNAME}/dati/
 
 sudo chown ${USERNAME}:${USERNAME} /media/${USERNAME}/dati/
 
-MY_UUID=$(sudo blkid | grep /dev/sda4:   |  grep -Eo ' UUID=".*" ' | awk '{print $1}' | sed 's/"//'g)
+MY_UUID=$(sudo blkid | grep ${PARTITION}:  |  grep -Eo ' UUID=".*" ' | awk '{print $1}' | sed 's/"//'g)
 
 sudo cp -a /etc/fstab $HOME/fstab.orig
 
