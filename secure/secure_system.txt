@@ -1,0 +1,7 @@
+# Disable TCP timestamps
+# 
+vim /etc/sysctl.conf
+
+# Disable TCP timestamps
+net.ipv4.tcp_timestamps = 0
+
