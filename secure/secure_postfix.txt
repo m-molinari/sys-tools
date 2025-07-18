@@ -1,0 +1,17 @@
+# Restrict tls
+smtpd_tls_mandatory_protocols = !SSLv2,!SSLv3,!TLSv1,!TLSv1.1
+smtp_tls_mandatory_protocols  = !SSLv2,!SSLv3,!TLSv1,!TLSv1.1
+smtpd_tls_protocols           = !SSLv2,!SSLv3,!TLSv1,!TLSv1.1
+smtp_tls_protocols            = !SSLv2,!SSLv3,!TLSv1,!TLSv1.1
+
+# restrict Ciphers
+smtpd_tls_mandatory_exclude_ciphers = RSA, MD5, DES, ADH, RC4, PSD, SRP, 3DES, eNULL, aNULL
+smtpd_tls_exclude_ciphers = RSA, MD5, DES, ADH, RC4, PSD, SRP, 3DES, eNULL, aNULL
+smtp_tls_mandatory_exclude_ciphers = RSA, MD5, DES, ADH, RC4, PSD, SRP, 3DES, eNULL, aNULL
+smtp_tls_exclude_ciphers = RSA, MD5, DES, ADH, RC4, PSD, SRP, 3DES, eNULL, aNULL
+
+disable_vrfy_command = yes
+strict_rfc821_envelopes = yes
+smtpd_delay_reject = yes
+smtpd_helo_required = yes
+
